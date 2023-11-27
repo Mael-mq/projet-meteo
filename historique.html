@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="shortcut icon" type="image/png" href="./media/icone.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Weather Report</title>
+</head>
+<body class="min-h-screen font-[Montserrat]">
+    <header class="w-full text-center menu-grid h-auto bleu-clair">
+        <div></div>
+        <a href="index.html" class="w-36 align-bottom"><img src="media/logo.png" class="w-36 py-2 mx-auto sm:mx-0" alt="Logo de Weather Report"></a>
+        <nav class="text-right mx-auto max-w-7xl h-full">
+            <ul class="list-none sm:px-0 px-40 py-9">
+                <a class="pr-4" href="index.html"><li class="inline txt-bleu font-bold">Accueil</li></a>
+                <a class="pr-4" href="meteo.html"><li class="inline txt-bleu font-bold">Météo</li></a>
+                <a class="pr-4" href="historique.html"><li class="inline txt-bleu font-bold">Historique</li></a>
+            </ul>
+        </nav>
+        <div></div>
+    </header>
+    <main class="max-w-7xl my-0 mx-auto font-[Montserrat]">
+        <div class="my-5">
+            <div class="ml-2 txt-bleu text-lg font-bold inline">Sélectionnez une ville</div>
+            <select id="selectville">
+                <option class="ville" value="stlo">Saint-Lô</option>
+                <option class="ville" value="lisieux">Lisieux</option>
+                <option class="ville" value="evreux">Évreux</option>
+            </select>
+        </div>
+        <iframe id="glooker" width="1200" height="900" src="https://lookerstudio.google.com/embed/reporting/1993e7dd-55d0-42fb-8806-25294ead57b6/page/0PkDD" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </main>
+    <footer class="bleu-clair w-full h-[100px] text-center txt-bleu pt-8">
+        <span>Copyright © 2023 - Par Félix, Gaïa et Maël</span>
+    </footer>
+    <!-- Script -->
+    <script type="text/javascript" src="js/historique.js"></script>
+</body>
+</html>

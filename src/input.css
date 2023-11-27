@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* compiler auto le css : update npx tailwindcss -i ./src/input.css -o ./css/output.css --watch */
+
+.bleu-clair {
+    background-color: #D1D4EB;
+}
+.txt-bleu {
+    color: #5F6A93;
+}
+
+.graph-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main {
+    min-height: calc(100vh - 235px); 
+}
+
+@media screen and (min-width: 640px) {
+    .menu-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+    }
+}

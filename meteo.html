@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="shortcut icon" type="image/png" href="./media/icone.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icônes météo -->
+    <script src="https://kit.fontawesome.com/a5a99fab6c.js" crossorigin="anonymous"></script>
+    <!-- ChartJs -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    
+    <title>Weather Report</title>
+</head>
+
+<body class="min-h-screen font-[Montserrat]">
+    <header class="w-full text-center menu-grid h-auto bleu-clair">
+        <div></div>
+        <a href="index.html" class="w-36 align-bottom"><img src="media/logo.png" class="w-36 py-2 mx-auto sm:mx-0" alt="Logo de Weather Report"></a>
+        <nav class="text-right mx-auto max-w-7xl h-full">
+            <ul class="list-none sm:px-0 px-40 py-9">
+                <a class="pr-4" href="index.html"><li class="inline txt-bleu font-bold">Accueil</li></a>
+                <a class="pr-4" href="meteo.html"><li class="inline txt-bleu font-bold">Météo</li></a>
+                <a class="pr-4" href="historique.html"><li class="inline txt-bleu font-bold">Historique</li></a>
+            </ul>
+        </nav>
+        <div></div>
+    </header>
+    <main class="max-w-7xl mx-auto">
+        <div class="my-5">
+            <div class="ml-2 txt-bleu text-lg font-bold inline">Sélectionnez une ville</div>
+            <select id="selectville">
+                <option class="ville" value="v1">Saint-Lô</option>
+                <option class="ville" value="v2">Lisieux</option>
+                <option class="ville" value="v3">Évreux</option>
+            </select>
+        </div>
+        <h2 class="text-2xl txt-bleu font-bold ml-2">En ce moment</h2>
+        <section class="m-6 p-3 txt-bleu font-bold rounded-lg bg-[#E7E9EE] grid grid-cols-3 sm:grid-cols-3">
+            <span class="txt-bleu mx-auto mt-2"><i id="icone" class=""></i></span>
+            <span class="txt-bleu text-6xl sm:text-7xl mx-auto mt-3" id="currenttemp"></span>
+            <span class="mx-auto"><canvas id="currentfleche" width="80px" height="80px"></canvas><div id="currentvitesse" class="mx-auto pl-2 my-2"></div></span>
+        </section>
+        
+        <h2 class="text-2xl txt-bleu font-bold ml-2 mb-5">Prévisions</h2>
+        
+        <div class="ml-2 txt-bleu text-lg font-bold inline">Sélectionnez un jour</div>
+        <select id="selectjour">
+            <option class="jour" value="j0"></option>
+            <option class="jour" value="j1"></option>
+            <option class="jour" value="j2"></option>
+            <option class="jour" value="j3"></option>
+        </select>
+        
+        <section class="sm:grid sm:grid-cols-2">
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="temp"></canvas></div>
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="prec"></canvas></div>
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="hum"></canvas></div>
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="cloud"></canvas></div>
+        </section>
+        <h2 class="text-2xl txt-bleu font-bold ml-2">Vitesse et direction du vent</h2>
+        <section class="m-6 p-2 txt-bleu font-bold rounded-lg bg-[#E7E9EE] grid grid-cols-3 sm:grid-cols-6">
+            <div class="mx-auto"><div class="pl-7 mb-2">3 h</div><canvas class="fleches" width="80px" height="80px"></canvas><div class="vitesses mx-auto pl-2 mt-2 mb-10 sm:mb-0"></div></div>
+            <div class="mx-auto"><div class="pl-7 mb-2">7 h</div><canvas class="fleches" width="80px" height="80px"></canvas><div class="vitesses mx-auto pl-2 mt-2"></div></div>
+            <div class="mx-auto"><div class="pl-7 mb-2">11 h</div><canvas class="fleches" width="80px" height="80px"></canvas><div class="vitesses mx-auto pl-2 mt-2"></div></div>
+            <div class="mx-auto"><div class="pl-7 mb-2">15 h</div><canvas class="fleches" width="80px" height="80px"></canvas><div class="vitesses mx-auto pl-2 mt-2"></div></div>
+            <div class="mx-auto"><div class="pl-7 mb-2">19 h</div><canvas class="fleches" width="80px" height="80px"></canvas><div class="vitesses mx-auto pl-2 mt-2"></div></div>
+            <div class="mx-auto"><div class="pl-7 mb-2">23 h</div><canvas class="fleches" width="80px" height="80px"></canvas><div class="vitesses mx-auto pl-2 mt-2"></div></div>
+            
+        </section>
+        <h2 class="text-2xl txt-bleu font-bold ml-2">Qualité de l'air</h2>
+        <section class="sm:grid sm:grid-cols-2">
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="UV"></canvas></div>
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="carbon"></canvas></div>
+            <div class="m-6 p-2 rounded-lg bg-[#E7E9EE]"><canvas id="pm"></canvas></div>
+        </section>
+    </main>
+    <footer class="bleu-clair w-full h-[100px] text-center txt-bleu pt-8">
+        <span>Copyright © 2023 - Par Félix, Gaïa et Maël</span>
+    </footer>
+    <!-- Script -->
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
+
